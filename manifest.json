@@ -1,7 +1,7 @@
 {
-    "name": "Inventaire Pro - Sécurisé",
-    "short_name": "Inventaire",
-    "description": "Gestionnaire d'inventaire sécurisé avec authentification",
+    "name": "Maison de Champagne - Gestion",
+    "short_name": "Champagne",
+    "description": "Gestion sécurisée des stocks de champagne",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#1a237e",

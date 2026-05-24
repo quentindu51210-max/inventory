@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1a237e">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Inventaire Pro - Sécurisé</title>
+    <title>Maison de Champagne - Gestion</title>
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon-192x192.png">
     <style>
@@ -18,11 +18,14 @@
             --danger: #e53935;
             --success: #43a047;
             --warning: #fb8c00;
+            --gold: #c9a227;
+            --gold-light: #e8d5a3;
             --bg: #f5f6fa;
             --card: #ffffff;
             --text: #2c3e50;
             --text-light: #7f8c8d;
             --border: #e0e0e0;
+            --champagne: #f7e7ce;
         }
 
         body {
@@ -54,26 +57,10 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
-        .auth-logo {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .auth-logo .icon {
-            font-size: 56px;
-            margin-bottom: 8px;
-        }
-
-        .auth-logo h1 {
-            font-size: 24px;
-            color: var(--primary);
-        }
-
-        .auth-logo p {
-            color: var(--text-light);
-            font-size: 14px;
-            margin-top: 4px;
-        }
+        .auth-logo { text-align: center; margin-bottom: 24px; }
+        .auth-logo .icon { font-size: 56px; margin-bottom: 8px; }
+        .auth-logo h1 { font-size: 22px; color: var(--primary); }
+        .auth-logo p { color: var(--text-light); font-size: 14px; margin-top: 4px; }
 
         .auth-tabs {
             display: flex;
@@ -103,10 +90,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .form-group {
-            margin-bottom: 16px;
-        }
-
+        .form-group { margin-bottom: 16px; }
         .form-label {
             display: block;
             font-size: 13px;
@@ -114,7 +98,6 @@
             margin-bottom: 6px;
             color: var(--text);
         }
-
         .form-input {
             width: 100%;
             padding: 14px 16px;
@@ -124,15 +107,8 @@
             outline: none;
             transition: all 0.2s;
         }
-
-        .form-input:focus {
-            border-color: var(--primary-light);
-        }
-
-        .form-input.error {
-            border-color: var(--danger);
-            background: #ffebee;
-        }
+        .form-input:focus { border-color: var(--primary-light); }
+        .form-input.error { border-color: var(--danger); background: #ffebee; }
 
         .password-strength {
             height: 4px;
@@ -141,14 +117,12 @@
             margin-top: 6px;
             overflow: hidden;
         }
-
         .password-strength-fill {
             height: 100%;
             border-radius: 2px;
             transition: all 0.3s;
             width: 0%;
         }
-
         .strength-weak { background: var(--danger); width: 33%; }
         .strength-medium { background: var(--warning); width: 66%; }
         .strength-strong { background: var(--success); width: 100%; }
@@ -166,14 +140,20 @@
             transition: all 0.2s;
             margin-top: 8px;
         }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-primary:active:not(:disabled) { transform: scale(0.98); }
 
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .btn-primary:active:not(:disabled) {
-            transform: scale(0.98);
+        .btn-secondary {
+            width: 100%;
+            padding: 16px;
+            background: var(--bg);
+            color: var(--text);
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         .auth-footer {
@@ -182,7 +162,6 @@
             font-size: 12px;
             color: var(--text-light);
         }
-
         .security-badge {
             display: inline-flex;
             align-items: center;
@@ -195,7 +174,6 @@
             font-weight: 600;
             margin-top: 12px;
         }
-
         .error-message {
             background: #ffebee;
             color: var(--danger);
@@ -207,10 +185,7 @@
             align-items: center;
             gap: 8px;
         }
-
-        .error-message.show {
-            display: flex;
-        }
+        .error-message.show { display: flex; }
 
         /* ========== APP SCREENS ========== */
         .app-screen { display: none; }
@@ -226,26 +201,21 @@
             z-index: 100;
             box-shadow: 0 2px 20px rgba(26,35,126,0.3);
         }
-
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
         }
-
         .header h1 { font-size: 20px; font-weight: 700; }
-
         .user-info {
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 13px;
         }
-
         .user-avatar {
-            width: 32px;
-            height: 32px;
+            width: 32px; height: 32px;
             border-radius: 50%;
             background: rgba(255,255,255,0.2);
             display: flex;
@@ -253,28 +223,24 @@
             justify-content: center;
             font-size: 16px;
         }
-
         .admin-badge {
-            background: var(--warning);
-            color: white;
+            background: var(--gold);
+            color: #333;
             padding: 2px 8px;
             border-radius: 10px;
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
         }
-
         .header-stats {
             display: flex;
             gap: 16px;
             font-size: 13px;
             opacity: 0.9;
         }
-
         .stat-item { display: flex; align-items: center; gap: 4px; }
         .stat-value { font-weight: 700; font-size: 16px; }
 
-        /* Menu */
         .menu-btn {
             background: none;
             border: none;
@@ -284,7 +250,7 @@
             padding: 4px;
         }
 
-        /* Search */
+        /* Search & Actions */
         .search-bar {
             background: white;
             padding: 12px 16px;
@@ -295,7 +261,6 @@
             top: 80px;
             z-index: 90;
         }
-
         .search-input {
             flex: 1;
             padding: 12px 16px;
@@ -304,10 +269,9 @@
             font-size: 16px;
             outline: none;
         }
-
         .search-input:focus { border-color: var(--primary-light); }
 
-        .filter-btn {
+        .action-btn {
             width: 44px; height: 44px;
             border-radius: 12px;
             border: 2px solid var(--border);
@@ -315,12 +279,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
+            transition: all 0.2s;
         }
+        .action-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
 
-        .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
-
+        /* Filter Panel */
         .filter-panel {
             background: white;
             padding: 0 16px;
@@ -329,11 +294,8 @@
             transition: max-height 0.3s;
             border-bottom: 1px solid var(--border);
         }
-
-        .filter-panel.open { max-height: 200px; padding: 12px 16px; }
-
+        .filter-panel.open { max-height: 250px; padding: 12px 16px; }
         .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
-
         .filter-chip {
             padding: 8px 16px;
             border-radius: 20px;
@@ -343,12 +305,42 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
         .filter-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* Items */
-        .items-container { padding: 12px; padding-bottom: 100px; }
+        /* Brands Grid */
+        .brands-container {
+            padding: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding-bottom: 100px;
+        }
+        .brand-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .brand-card:active { transform: scale(0.96); }
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+        .brand-icon { font-size: 40px; margin-bottom: 12px; }
+        .brand-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .brand-count { font-size: 13px; color: var(--text-light); }
+        .brand-value { font-size: 14px; color: var(--gold); font-weight: 600; margin-top: 6px; }
 
+        /* Items List */
+        .items-container { padding: 12px; padding-bottom: 100px; }
         .item-card {
             background: var(--card);
             border-radius: 16px;
@@ -362,24 +354,31 @@
             position: relative;
             overflow: hidden;
         }
-
         .item-card:active { transform: scale(0.98); }
-
         .item-image {
-            width: 64px; height: 64px;
+            width: 80px; height: 80px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            background: linear-gradient(135deg, #f7e7ce 0%, #e8d5a3 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 32px;
             flex-shrink: 0;
+            overflow: hidden;
         }
-
+        .item-image img { width: 100%; height: 100%; object-fit: cover; }
         .item-info { flex: 1; min-width: 0; }
         .item-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .item-brand { font-size: 12px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
         .item-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-        .item-category { font-size: 12px; padding: 3px 10px; border-radius: 10px; background: #e8eaf6; color: var(--primary); font-weight: 500; }
+        .item-gamme {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 10px;
+            background: #e8eaf6;
+            color: var(--primary);
+            font-weight: 500;
+        }
         .item-sku { font-size: 12px; color: var(--text-light); font-family: monospace; }
         .item-stock { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
         .stock-bar { flex: 1; height: 6px; background: #e0e0e0; border-radius: 3px; overflow: hidden; }
@@ -388,7 +387,25 @@
         .stock-fill.medium { background: var(--warning); }
         .stock-fill.low { background: var(--danger); }
         .stock-text { font-size: 13px; font-weight: 600; min-width: 40px; text-align: right; }
-        .item-price { font-size: 18px; font-weight: 700; color: var(--primary); margin-top: 4px; }
+
+        .item-prices {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px;
+            font-size: 13px;
+        }
+        .price-public { color: var(--text); }
+        .price-export { color: var(--success); font-weight: 600; }
+        .price-label { font-size: 10px; color: var(--text-light); text-transform: uppercase; }
+
+        .item-qr {
+            width: 48px; height: 48px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item-qr svg { width: 100%; height: 100%; }
 
         .empty-state { text-align: center; padding: 60px 20px; color: var(--text-light); }
         .empty-state .icon { font-size: 64px; margin-bottom: 16px; opacity: 0.5; }
@@ -400,10 +417,30 @@
             bottom: 24px; right: 24px;
             width: 60px; height: 60px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: #333;
+            border: none;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+        .fab:active { transform: scale(0.9); }
+
+        /* Scan Button */
+        .scan-btn {
+            position: fixed;
+            bottom: 24px; left: 24px;
+            width: 60px; height: 60px;
+            border-radius: 50%;
             background: linear-gradient(135deg, var(--accent) 0%, #00838f 100%);
             color: white;
             border: none;
-            font-size: 28px;
+            font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -412,8 +449,7 @@
             z-index: 1000;
             transition: transform 0.2s;
         }
-
-        .fab:active { transform: scale(0.9); }
+        .scan-btn:active { transform: scale(0.9); }
 
         /* Modal */
         .modal-overlay {
@@ -428,9 +464,7 @@
             pointer-events: none;
             transition: opacity 0.3s;
         }
-
         .modal-overlay.active { opacity: 1; pointer-events: all; }
-
         .modal {
             background: white;
             width: 100%;
@@ -442,14 +476,65 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-
         .modal-overlay.active .modal { transform: translateY(0); }
-
         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
         .modal-title { font-size: 22px; font-weight: 700; }
         .modal-close { width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--bg); font-size: 20px; cursor: pointer; }
 
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+        .photo-upload {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .photo-upload:hover { border-color: var(--primary-light); }
+        .photo-upload.has-photo { border-style: solid; border-color: var(--success); }
+        .photo-upload img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+        .photo-upload-text { color: var(--text-light); font-size: 14px; z-index: 1; }
+        .photo-upload-icon { font-size: 32px; margin-bottom: 8px; z-index: 1; }
+        .photo-remove {
+            position: absolute;
+            top: 8px; right: 8px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: var(--danger);
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 2;
+            display: none;
+        }
+        .photo-upload.has-photo .photo-remove { display: flex; align-items: center; justify-content: center; }
+
+        /* QR Modal */
+        .qr-modal-content {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .qr-display {
+            width: 200px; height: 200px;
+            margin: 0 auto 20px;
+            padding: 12px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        .qr-display svg { width: 100%; height: 100%; }
+        .qr-info { font-size: 14px; color: var(--text-light); margin-bottom: 8px; }
+        .qr-code-text { font-family: monospace; font-size: 12px; color: var(--text-light); background: var(--bg); padding: 8px 12px; border-radius: 8px; display: inline-block; }
 
         /* Sheet */
         .sheet-overlay {
@@ -464,9 +549,7 @@
             pointer-events: none;
             transition: opacity 0.3s;
         }
-
         .sheet-overlay.active { opacity: 1; pointer-events: all; }
-
         .sheet {
             background: white;
             width: 100%;
@@ -476,9 +559,7 @@
             transform: translateY(100%);
             transition: transform 0.3s ease;
         }
-
         .sheet-overlay.active .sheet { transform: translateY(0); }
-
         .sheet-item { display: flex; align-items: center; gap: 16px; padding: 16px; border-radius: 12px; cursor: pointer; transition: background 0.2s; }
         .sheet-item:active { background: var(--bg); }
         .sheet-item-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
@@ -501,7 +582,6 @@
             transition: all 0.3s;
             white-space: nowrap;
         }
-
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* Side Menu */
@@ -514,9 +594,7 @@
             pointer-events: none;
             transition: opacity 0.3s;
         }
-
         .menu-overlay.active { opacity: 1; pointer-events: all; }
-
         .side-menu {
             position: fixed;
             top: 0; left: 0;
@@ -529,49 +607,40 @@
             display: flex;
             flex-direction: column;
         }
-
         .side-menu.active { transform: translateX(0); }
-
         .menu-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             padding: 32px 20px;
         }
-
         .menu-user { display: flex; align-items: center; gap: 12px; }
         .menu-avatar { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 24px; }
         .menu-user-name { font-weight: 600; font-size: 16px; }
         .menu-user-role { font-size: 12px; opacity: 0.8; }
-
         .menu-items { flex: 1; padding: 12px; }
         .menu-item { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 12px; cursor: pointer; transition: background 0.2s; color: var(--text); text-decoration: none; }
         .menu-item:active { background: var(--bg); }
         .menu-item-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
         .menu-item-text { font-size: 15px; font-weight: 500; }
-
         .menu-footer { padding: 16px; border-top: 1px solid var(--border); }
 
         /* Admin Panel */
         .admin-panel { padding: 16px; }
         .admin-section { background: white; border-radius: 16px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
         .admin-section-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-
         .log-table { width: 100%; font-size: 13px; }
         .log-table th { text-align: left; padding: 10px 8px; border-bottom: 2px solid var(--border); color: var(--text-light); font-weight: 600; }
         .log-table td { padding: 10px 8px; border-bottom: 1px solid #f0f0f0; }
         .log-table tr:last-child td { border-bottom: none; }
-
         .log-status { padding: 4px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
         .log-status.success { background: #e8f5e9; color: var(--success); }
         .log-status.fail { background: #ffebee; color: var(--danger); }
-
         .user-row { display: flex; align-items: center; justify-content: space-between; padding: 12px; border-bottom: 1px solid #f0f0f0; }
         .user-row:last-child { border-bottom: none; }
         .user-row-info { display: flex; align-items: center; gap: 12px; }
         .user-row-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
         .user-row-name { font-weight: 600; }
         .user-row-email { font-size: 12px; color: var(--text-light); }
-
         .danger-zone { border: 2px solid var(--danger); border-radius: 16px; padding: 20px; margin-top: 16px; }
         .danger-zone-title { color: var(--danger); font-weight: 700; margin-bottom: 12px; }
         .btn-danger { width: 100%; padding: 14px; background: var(--danger); color: white; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; }
@@ -589,7 +658,6 @@
             justify-content: center;
             padding: 24px;
         }
-
         .lock-card {
             background: white;
             border-radius: 24px;
@@ -598,15 +666,12 @@
             max-width: 360px;
             text-align: center;
         }
-
         .lock-icon { font-size: 48px; margin-bottom: 16px; }
         .lock-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
         .lock-subtitle { color: var(--text-light); font-size: 14px; margin-bottom: 24px; }
-
         .pin-dots { display: flex; gap: 16px; justify-content: center; margin-bottom: 24px; }
         .pin-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--border); transition: all 0.2s; }
         .pin-dot.filled { background: var(--primary); border-color: var(--primary); }
-
         .pin-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
         .pin-key {
             aspect-ratio: 1;
@@ -625,12 +690,91 @@
         .pin-key:active { background: var(--bg); transform: scale(0.95); }
         .pin-key.delete { font-size: 18px; }
 
+        /* Scanner */
+        .scanner-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 4000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .scanner-overlay.active { display: flex; }
+        .scanner-frame {
+            width: 280px;
+            height: 280px;
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            position: relative;
+        }
+        .scanner-frame::before, .scanner-frame::after {
+            content: '';
+            position: absolute;
+            width: 40px; height: 40px;
+            border-color: var(--gold);
+            border-style: solid;
+        }
+        .scanner-frame::before { top: -3px; left: -3px; border-width: 4px 0 0 4px; border-radius: 16px 0 0 0; }
+        .scanner-frame::after { bottom: -3px; right: -3px; border-width: 0 4px 4px 0; border-radius: 0 0 16px 0; }
+        .scanner-laser {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--danger);
+            box-shadow: 0 0 8px var(--danger);
+            animation: scan 2s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .scanner-text { color: white; margin-top: 24px; font-size: 16px; }
+        .scanner-close {
+            position: absolute;
+            top: 24px; right: 24px;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Brand Detail Header */
+        .brand-detail-header {
+            background: white;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .brand-detail-back {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brand-detail-info { flex: 1; }
+        .brand-detail-name { font-size: 20px; font-weight: 700; }
+        .brand-detail-stats { font-size: 13px; color: var(--text-light); margin-top: 4px; }
+
         /* Animations */
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .item-card { animation: slideIn 0.3s ease; }
+        .item-card, .brand-card { animation: slideIn 0.3s ease; }
 
         ::-webkit-scrollbar { display: none; }
     </style>
@@ -640,14 +784,14 @@
     <div class="auth-screen" id="authScreen">
         <div class="auth-card">
             <div class="auth-logo">
-                <div class="icon">📦</div>
-                <h1>Inventaire Pro</h1>
-                <p>Gestion sécurisée de stock</p>
+                <div class="icon">🍾</div>
+                <h1>Maison de Champagne</h1>
+                <p>Gestion sécurisée des stocks</p>
             </div>
 
             <div class="auth-tabs">
-                <button class="auth-tab active" onclick="switchTab('login')">Connexion</button>
-                <button class="auth-tab" onclick="switchTab('register')">Inscription</button>
+                <button class="auth-tab active" onclick="switchTab('login')" id="tabLogin">Connexion</button>
+                <button class="auth-tab" onclick="switchTab('register')" id="tabRegister">Inscription</button>
             </div>
 
             <div class="error-message" id="authError">
@@ -656,45 +800,45 @@
             </div>
 
             <!-- Login Form -->
-            <form id="loginForm" onsubmit="handleLogin(event)">
+            <div id="loginForm">
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-input" id="loginEmail" required placeholder="votre@email.com">
+                    <input type="email" class="form-input" id="loginEmail" placeholder="votre@email.com">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Mot de passe</label>
-                    <input type="password" class="form-input" id="loginPassword" required placeholder="••••••••">
+                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••">
                 </div>
-                <button type="submit" class="btn-primary">🔐 Se connecter</button>
-            </form>
+                <button class="btn-primary" onclick="handleLogin()">🔐 Se connecter</button>
+            </div>
 
             <!-- Register Form -->
-            <form id="registerForm" onsubmit="handleRegister(event)" style="display:none;">
+            <div id="registerForm" style="display:none;">
                 <div class="form-group">
                     <label class="form-label">Nom complet</label>
-                    <input type="text" class="form-input" id="regName" required placeholder="Jean Dupont">
+                    <input type="text" class="form-input" id="regName" placeholder="Jean Dupont">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-input" id="regEmail" required placeholder="votre@email.com">
+                    <input type="email" class="form-input" id="regEmail" placeholder="votre@email.com">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Mot de passe</label>
-                    <input type="password" class="form-input" id="regPassword" required placeholder="Min. 8 caractères" oninput="checkPasswordStrength()">
+                    <input type="password" class="form-input" id="regPassword" placeholder="Min. 8 caractères" oninput="checkPasswordStrength()">
                     <div class="password-strength">
                         <div class="password-strength-fill" id="passwordStrength"></div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Confirmer le mot de passe</label>
-                    <input type="password" class="form-input" id="regPasswordConfirm" required placeholder="••••••••">
+                    <input type="password" class="form-input" id="regPasswordConfirm" placeholder="••••••••">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Code d'accès admin (optionnel)</label>
                     <input type="password" class="form-input" id="regAdminCode" placeholder="Laisser vide = utilisateur">
                 </div>
-                <button type="submit" class="btn-primary">📝 Créer un compte</button>
-            </form>
+                <button class="btn-primary" onclick="handleRegister()">📝 Créer un compte</button>
+            </div>
 
             <div class="auth-footer">
                 <div class="security-badge">
@@ -736,13 +880,26 @@
         </div>
     </div>
 
-    <!-- ========== APP SCREEN ========== -->
-    <div class="app-screen" id="appScreen">
-        <!-- Header -->
+    <!-- ========== SCANNER ========== -->
+    <div class="scanner-overlay" id="scannerOverlay">
+        <button class="scanner-close" onclick="closeScanner()">✕</button>
+        <div class="scanner-frame">
+            <div class="scanner-laser"></div>
+        </div>
+        <div class="scanner-text">Scannez le QR code du produit</div>
+        <div style="margin-top:20px;">
+            <input type="text" id="manualQrInput" placeholder="Ou entrez le code manuellement" 
+                   style="padding:12px 16px;border-radius:12px;border:none;font-size:16px;width:250px;text-align:center;"
+                   onkeydown="if(event.key==='Enter')manualQrSearch()">
+        </div>
+    </div>
+
+    <!-- ========== BRANDS SCREEN ========== -->
+    <div class="app-screen" id="brandsScreen">
         <div class="header">
             <div class="header-top">
                 <button class="menu-btn" onclick="toggleMenu()">☰</button>
-                <h1>📦 Inventaire</h1>
+                <h1>🍾 Maisons</h1>
                 <div class="user-info">
                     <span id="headerUserName"></span>
                     <span class="admin-badge" id="headerAdminBadge" style="display:none;">ADMIN</span>
@@ -751,48 +908,84 @@
             </div>
             <div class="header-stats">
                 <div class="stat-item">
-                    <span>Articles:</span>
-                    <span class="stat-value" id="totalItems">0</span>
+                    <span>Maisons:</span>
+                    <span class="stat-value" id="totalBrands">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Bouteilles:</span>
+                    <span class="stat-value" id="totalBottles">0</span>
                 </div>
                 <div class="stat-item">
                     <span>Valeur:</span>
-                    <span class="stat-value" id="totalValue">0€</span>
-                </div>
-                <div class="stat-item">
-                    <span>Alertes:</span>
-                    <span class="stat-value" id="lowStockCount" style="color: #ffeb3b;">0</span>
+                    <span class="stat-value" id="totalStockValue">0€</span>
                 </div>
             </div>
         </div>
 
-        <!-- Search -->
         <div class="search-bar">
-            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher..." oninput="filterItems()">
-            <button class="filter-btn" id="filterBtn" onclick="toggleFilters()">🔽</button>
+            <input type="text" class="search-input" id="brandSearchInput" placeholder="Rechercher une maison..." oninput="filterBrands()">
+            <button class="action-btn" id="exportBtn" onclick="exportToCSV()" title="Exporter CSV">📊</button>
+        </div>
+
+        <div class="brands-container" id="brandsContainer">
+            <div class="empty-state">
+                <div class="icon">🍾</div>
+                <h3>Aucune maison</h3>
+                <p>Ajoutez votre première maison de champagne</p>
+            </div>
+        </div>
+
+        <button class="scan-btn" onclick="openScanner()">📷</button>
+        <button class="fab" onclick="openBrandModal()">+</button>
+    </div>
+
+    <!-- ========== BRAND DETAIL SCREEN ========== -->
+    <div class="app-screen" id="brandDetailScreen">
+        <div class="header">
+            <div class="header-top">
+                <button class="menu-btn" onclick="showScreen('brands')">←</button>
+                <h1 id="brandDetailTitle">Produits</h1>
+                <div class="user-info">
+                    <span class="admin-badge" id="headerAdminBadge2" style="display:none;">ADMIN</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-detail-header">
+            <button class="brand-detail-back" onclick="showScreen('brands')">←</button>
+            <div class="brand-detail-info">
+                <div class="brand-detail-name" id="currentBrandName">Maison</div>
+                <div class="brand-detail-stats" id="currentBrandStats">0 produits • 0 bouteilles</div>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" id="itemSearchInput" placeholder="Rechercher un produit..." oninput="filterBrandItems()">
+            <button class="action-btn" onclick="toggleFilters()" id="filterBtn">🔽</button>
         </div>
 
         <div class="filter-panel" id="filterPanel">
             <div class="filter-group">
-                <div class="filter-chip active" onclick="setCategory('all')">Tous</div>
-                <div class="filter-chip" onclick="setCategory('electronique')">Électronique</div>
-                <div class="filter-chip" onclick="setCategory('alimentaire')">Alimentaire</div>
-                <div class="filter-chip" onclick="setCategory('textile')">Textile</div>
-                <div class="filter-chip" onclick="setCategory('outillage')">Outillage</div>
-                <div class="filter-chip" onclick="setCategory('autre')">Autre</div>
+                <div class="filter-chip active" onclick="setGammeFilter('all')">Toutes gammes</div>
+                <div class="filter-chip" onclick="setGammeFilter('brut')">Brut</div>
+                <div class="filter-chip" onclick="setGammeFilter('rose')">Rosé</div>
+                <div class="filter-chip" onclick="setGammeFilter('blanc-de-blancs')">Blanc de Blancs</div>
+                <div class="filter-chip" onclick="setGammeFilter('millessime')">Millésimé</div>
+                <div class="filter-chip" onclick="setGammeFilter('prestige')">Prestige</div>
+                <div class="filter-chip" onclick="setGammeFilter('demi-sec')">Demi-sec</div>
             </div>
         </div>
 
-        <!-- Items List -->
-        <div class="items-container" id="itemsContainer">
-            <div class="empty-state" id="emptyState">
-                <div class="icon">📭</div>
-                <h3>Aucun article</h3>
-                <p>Commencez par ajouter votre premier article</p>
+        <div class="items-container" id="brandItemsContainer">
+            <div class="empty-state">
+                <div class="icon">🍾</div>
+                <h3>Aucun produit</h3>
+                <p>Ajoutez votre premier champagne</p>
             </div>
         </div>
 
-        <!-- FAB -->
-        <button class="fab" onclick="openModal()">+</button>
+        <button class="scan-btn" onclick="openScanner()">📷</button>
+        <button class="fab" onclick="openItemModal()">+</button>
     </div>
 
     <!-- ========== ADMIN SCREEN ========== -->
@@ -808,20 +1001,12 @@
         </div>
 
         <div class="admin-panel">
-            <!-- Security Logs -->
             <div class="admin-section">
                 <div class="admin-section-title">🛡️ Journal de sécurité</div>
                 <div style="overflow-x:auto;">
                     <table class="log-table" id="securityLogsTable">
                         <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Type</th>
-                                <th>Identifiant</th>
-                                <th>IP</th>
-                                <th>Appareil</th>
-                                <th>Statut</th>
-                            </tr>
+                            <tr><th>Date</th><th>Type</th><th>Identifiant</th><th>IP</th><th>Appareil</th><th>Statut</th></tr>
                         </thead>
                         <tbody id="securityLogsBody">
                             <tr><td colspan="6" style="text-align:center;color:var(--text-light);">Aucun événement</td></tr>
@@ -830,7 +1015,6 @@
                 </div>
             </div>
 
-            <!-- Users Management -->
             <div class="admin-section">
                 <div class="admin-section-title">👥 Utilisateurs</div>
                 <div id="usersList">
@@ -838,7 +1022,6 @@
                 </div>
             </div>
 
-            <!-- Danger Zone -->
             <div class="danger-zone">
                 <div class="danger-zone-title">⚠️ Zone dangereuse</div>
                 <button class="btn-danger" onclick="clearAllData()">🗑️ Effacer TOUTES les données</button>
@@ -859,85 +1042,169 @@
             </div>
         </div>
         <div class="menu-items">
-            <div class="menu-item" onclick="showScreen('app')">
-                <div class="menu-item-icon" style="background:#e3f2fd;">📦</div>
-                <div class="menu-item-text">Inventaire</div>
+            <div class="menu-item" onclick="showScreen('brands'); toggleMenu();">
+                <div class="menu-item-icon" style="background:#e3f2fd;">🍾</div>
+                <div class="menu-item-text">Maisons</div>
             </div>
-            <div class="menu-item" onclick="showScreen('admin')" id="menuAdminItem" style="display:none;">
+            <div class="menu-item" onclick="showScreen('admin'); toggleMenu();" id="menuAdminItem" style="display:none;">
                 <div class="menu-item-icon" style="background:#fff3e0;">⚙️</div>
                 <div class="menu-item-text">Administration</div>
             </div>
-            <div class="menu-item" onclick="lockSession()">
+            <div class="menu-item" onclick="exportToCSV(); toggleMenu();">
+                <div class="menu-item-icon" style="background:#e8f5e9;">📊</div>
+                <div class="menu-item-text">Exporter CSV</div>
+            </div>
+            <div class="menu-item" onclick="lockSession();">
                 <div class="menu-item-icon" style="background:#f3e5f5;">🔒</div>
                 <div class="menu-item-text">Verrouiller</div>
             </div>
-            <div class="menu-item" onclick="logout()">
+            <div class="menu-item" onclick="logout();">
                 <div class="menu-item-icon" style="background:#ffebee;">🚪</div>
                 <div class="menu-item-text" style="color:var(--danger);">Déconnexion</div>
             </div>
         </div>
         <div class="menu-footer" style="font-size:12px;color:var(--text-light);text-align:center;">
-            Inventaire Pro v1.0 • Sécurisé
+            Champagne Inventory v2.0 • Sécurisé
         </div>
     </div>
 
-    <!-- ========== MODALS ========== -->
-    <div class="modal-overlay" id="modalOverlay">
+    <!-- ========== BRAND MODAL ========== -->
+    <div class="modal-overlay" id="brandModalOverlay">
         <div class="modal">
             <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Nouvel Article</h2>
-                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2 class="modal-title" id="brandModalTitle">Nouvelle Maison</h2>
+                <button class="modal-close" onclick="closeBrandModal()">✕</button>
             </div>
-            <form id="itemForm" onsubmit="saveItem(event)">
-                <input type="hidden" id="itemId">
+            <div id="brandModalContent">
                 <div class="form-group">
-                    <label class="form-label">Nom de l'article *</label>
-                    <input type="text" class="form-input" id="itemName" required placeholder="Ex: iPhone 15 Pro">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Catégorie</label>
-                    <select class="form-input" id="itemCategory">
-                        <option value="electronique">Électronique</option>
-                        <option value="alimentaire">Alimentaire</option>
-                        <option value="textile">Textile</option>
-                        <option value="outillage">Outillage</option>
-                        <option value="autre">Autre</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Quantité *</label>
-                        <input type="number" class="form-input" id="itemQuantity" required min="0" placeholder="0">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Stock minimum</label>
-                        <input type="number" class="form-input" id="itemMinStock" min="0" placeholder="5">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Prix unitaire (€) *</label>
-                        <input type="number" class="form-input" id="itemPrice" required min="0" step="0.01" placeholder="0.00">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Référence (SKU)</label>
-                        <input type="text" class="form-input" id="itemSku" placeholder="REF-001">
-                    </div>
+                    <label class="form-label">Nom de la maison *</label>
+                    <input type="text" class="form-input" id="brandName" placeholder="Ex: Moët & Chandon">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Description</label>
-                    <input type="text" class="form-input" id="itemDescription" placeholder="Description optionnelle...">
+                    <input type="text" class="form-input" id="brandDescription" placeholder="Description de la maison...">
                 </div>
-                <button type="submit" class="btn-primary">💾 Enregistrer</button>
-                <button type="button" class="btn-secondary" onclick="closeModal()" style="width:100%;padding:16px;background:var(--bg);border:none;border-radius:14px;font-size:16px;font-weight:600;margin-top:10px;cursor:pointer;">Annuler</button>
-            </form>
+                <button class="btn-primary" onclick="saveBrand()">💾 Enregistrer</button>
+                <button class="btn-secondary" onclick="closeBrandModal()">Annuler</button>
+            </div>
         </div>
     </div>
 
+    <!-- ========== ITEM MODAL ========== -->
+    <div class="modal-overlay" id="itemModalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="itemModalTitle">Nouveau Champagne</h2>
+                <button class="modal-close" onclick="closeItemModal()">✕</button>
+            </div>
+            <div id="itemModalContent">
+                <input type="hidden" id="itemId">
+
+                <!-- Photo -->
+                <div class="photo-upload" id="photoUpload" onclick="document.getElementById('itemPhotoInput').click()">
+                    <img id="photoPreview" style="display:none;">
+                    <div class="photo-upload-text" id="photoUploadText">
+                        <div class="photo-upload-icon">📷</div>
+                        <div>Ajouter une photo</div>
+                    </div>
+                    <button class="photo-remove" onclick="removePhoto(event)">✕</button>
+                </div>
+                <input type="file" id="itemPhotoInput" accept="image/*" style="display:none;" onchange="handlePhotoUpload(event)">
+
+                <div class="form-group">
+                    <label class="form-label">Nom du champagne *</label>
+                    <input type="text" class="form-input" id="itemName" placeholder="Ex: Brut Impérial">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Maison</label>
+                        <select class="form-input" id="itemBrand">
+                            <option value="">Choisir une maison...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gamme</label>
+                        <select class="form-input" id="itemGamme">
+                            <option value="brut">Brut</option>
+                            <option value="rose">Rosé</option>
+                            <option value="blanc-de-blancs">Blanc de Blancs</option>
+                            <option value="millessime">Millésimé</option>
+                            <option value="prestige">Prestige</option>
+                            <option value="demi-sec">Demi-sec</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label class="form-label">Quantité *</label>
+                        <input type="number" class="form-input" id="itemQuantity" min="0" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Stock min</label>
+                        <input type="number" class="form-input" id="itemMinStock" min="0" placeholder="6">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Millésime</label>
+                        <input type="number" class="form-input" id="itemVintage" min="1900" max="2099" placeholder="2015">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Prix public (€) *</label>
+                        <input type="number" class="form-input" id="itemPricePublic" min="0" step="0.01" placeholder="45.00">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Prix export (€) *</label>
+                        <input type="number" class="form-input" id="itemPriceExport" min="0" step="0.01" placeholder="38.00">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Référence (SKU)</label>
+                    <input type="text" class="form-input" id="itemSku" placeholder="CHAMP-001">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description / Notes de dégustation</label>
+                    <input type="text" class="form-input" id="itemDescription" placeholder="Arômes de fruits blancs, bulles fines...">
+                </div>
+
+                <button class="btn-primary" onclick="saveItem()">💾 Enregistrer</button>
+                <button class="btn-secondary" onclick="closeItemModal()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== QR MODAL ========== -->
+    <div class="modal-overlay" id="qrModalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">QR Code</h2>
+                <button class="modal-close" onclick="closeQrModal()">✕</button>
+            </div>
+            <div class="qr-modal-content">
+                <div class="qr-info" id="qrProductInfo"></div>
+                <div class="qr-display" id="qrDisplay"></div>
+                <div class="qr-code-text" id="qrCodeText"></div>
+                <button class="btn-primary" onclick="downloadQR()" style="margin-top:20px;">📥 Télécharger QR</button>
+                <button class="btn-secondary" onclick="closeQrModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ACTION SHEET ========== -->
     <div class="sheet-overlay" id="sheetOverlay" onclick="closeSheet(event)">
         <div class="sheet" onclick="event.stopPropagation()">
+            <div class="sheet-item" onclick="showQRCode()">
+                <div class="sheet-item-icon" style="background:#e3f2fd;">📱</div>
+                <div class="sheet-item-text">Voir QR Code</div>
+            </div>
             <div class="sheet-item" onclick="editCurrentItem()">
-                <div class="sheet-item-icon" style="background:#e3f2fd;">✏️</div>
+                <div class="sheet-item-icon" style="background:#e8f5e9;">✏️</div>
                 <div class="sheet-item-text">Modifier</div>
             </div>
             <div class="sheet-item" onclick="duplicateCurrentItem()">
@@ -955,6 +1222,7 @@
         </div>
     </div>
 
+    <!-- Toast -->
     <div class="toast" id="toast"></div>
 
     <script src="app.js"></script>
